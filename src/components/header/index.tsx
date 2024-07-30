@@ -10,6 +10,8 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import CustomSearchBar from '../common/CustomSearch';
 import Image from 'next/image';
+import DrawerHome from '../common/Drawer';
+import ProfileCard from '../common/ProfileCard';
 
 export default function Header() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -96,6 +98,25 @@ export default function Header() {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
+          <DrawerHome>
+            <ProfileCard
+              name="John Doe"
+              levelAndJob="Category\nSub Category"
+              rating={4.5}
+              reviewsCount="1K+ reviews"
+              experienceYears={10}
+              imageUrl="/noImage.png"
+              tags={['Tag1', 'Tag2', 'Tag3', 'Tag4']}
+              price="49.99"
+              originalPrice="80.00"
+              offerText="Offer (1 month money back)"
+              onAddClick={() => console.log('Add clicked')}
+              onFavoriteClick={() => console.log('Favorite clicked')}
+              compact={true}
+              drawerMode={true}
+            />
+          </DrawerHome>
+
           <Image height={200} width={200} src={'/vercel.svg'} alt="no" style={{ height: '20px' }} />
           <CustomSearchBar />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
