@@ -18,7 +18,11 @@ const DrawerHome: React.FC<DrawerHomeProps> = ({ children }) => {
   };
 
   return (
-    <div>
+    <div
+      style={{
+        display: isMobile ? 'block' : 'none'
+      }}
+    >
       <IconButton size="large" edge="start" color="inherit" aria-label="open drawer" sx={{ mr: 2 }} onClick={toggleDrawer(true)}>
         <MenuIcon />
       </IconButton>
@@ -28,7 +32,7 @@ const DrawerHome: React.FC<DrawerHomeProps> = ({ children }) => {
         onClose={toggleDrawer(false)}
         variant={isMobile ? 'temporary' : 'persistent'}
         sx={{
-          width: isMobile ? '100%' : '350px'
+          width: isMobile ? '100%' : '0px'
         }}
       >
         <Box sx={{ width: isMobile ? '100%' : 350, padding: 2 }}>

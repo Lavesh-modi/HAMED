@@ -25,17 +25,16 @@ const Search = styled('div')(({ theme }) => ({
     backgroundColor: alpha(theme.palette.common.white, 0.25)
   },
   padding: theme.spacing(0, 2),
-  [theme.breakpoints.up('sm')]: {
-    marginLeft: theme.spacing(3),
-    width: 'auto'
-  }
+  width: '100%',
+  height: '100%'
 }));
 
 const CategoryAutocomplete = styled(Autocomplete<Category>)(({ theme }) => ({
-  //   width: 100,
-  marginRight: theme.spacing(2),
   '& .MuiOutlinedInput-root': {
-    paddingRight: 0
+    paddingRight: 0,
+    '& fieldset': {
+      border: 'none'
+    }
   },
   '& .MuiAutocomplete-inputRoot[class*="MuiOutlinedInput-root"] .MuiAutocomplete-input:first-of-type': {
     paddingRight: theme.spacing(4)
@@ -46,24 +45,38 @@ const CustomSearchBar: React.FC = () => {
   return (
     <Box
       sx={{
-        display: 'flex',
-        flexDirection: 'row',
-        marginInline: 'auto',
-        padding: '0px',
-        gap: '0px',
-        borderStyle: 'ridge',
-        borderColor: '#454545',
-        borderWidth: '1px'
+        display: 'grid',
+        gridTemplateColumns: 'minmax(100px, 30%) 70%',
+        width: '60%',
+        height: '100%',
+        border: '1px solid #454545',
+        borderRadius: '4px',
+        overflow: 'hidden'
       }}
     >
       <CategoryAutocomplete
         sx={{ marginInline: '0px' }}
         options={categories}
         getOptionLabel={(option) => option.title}
-        renderInput={(params) => <TextField {...params} label="" variant="outlined" placeholder="Category" />}
+        renderInput={(params) => (
+          <TextField
+            {...params}
+            label=""
+            variant="outlined"
+            placeholder="Category"
+            sx={{
+              '& .MuiOutlinedInput-root': {
+                paddingRight: 0,
+                '& fieldset': {
+                  border: 'none'
+                }
+              }
+            }}
+          />
+        )}
       />
-      <Search style={{ marginInline: '0px', padding: '0px', width: '30rem' }}>
-        <Box sx={{ flexGrow: 10, width: '100%' }}>
+      <Search style={{ marginInline: '0px', padding: '0px', width: '100%' }}>
+        <Box sx={{ width: '100%' }}>
           <TextField
             fullWidth
             variant="outlined"
@@ -74,7 +87,12 @@ const CustomSearchBar: React.FC = () => {
                 <InputAdornment position="end">
                   <SearchIcon />
                 </InputAdornment>
-              )
+              ),
+              sx: {
+                '& .MuiOutlinedInput-notchedOutline': {
+                  border: 'none'
+                }
+              }
             }}
           />
         </Box>

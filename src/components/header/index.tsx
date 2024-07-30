@@ -118,7 +118,10 @@ export default function Header() {
           </DrawerHome>
 
           <Image height={200} width={200} src={'/vercel.svg'} alt="no" style={{ height: '20px' }} />
-          <CustomSearchBar />
+          <Box sx={{ flexGrow: 1, height: '100%', paddingX: '10px', display: 'flex', justifyContent: 'center' }}>
+            <CustomSearchBar />
+          </Box>
+
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
             <IconButton
               size="large"
