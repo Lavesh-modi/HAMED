@@ -3,13 +3,9 @@ import React from 'react';
 import ProfileCard from '../common/ProfileCard';
 
 function MainContent() {
-  const handleAddClick = () => {
-    console.log('Add button clicked');
-  };
+  const handleAddClick = () => {};
 
-  const handleFavoriteClick = () => {
-    console.log('Favorite button clicked');
-  };
+  const handleFavoriteClick = () => {};
 
   // Array of profile data
   const profiles = [

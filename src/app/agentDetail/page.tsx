@@ -5,9 +5,7 @@ import DynamicSidebar from '@/components/common/DynamicSidebar';
 import MainAgent from '@/components/agentDetail/mainContent';
 
 function AgentDetail() {
-  const handleFavoriteClick = () => {
-    console.log('Favorite button clicked');
-  };
+  const handleFavoriteClick = () => {};
   return (
     <DynamicSidebar
       sidebar={
