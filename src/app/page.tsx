@@ -1,8 +1,7 @@
-// import ProfileCard from '@/components/common/ProfileCard';
 'use client';
 import ComboBox from '@/components/common/AutoComplete';
 import ProfileCard from '@/components/common/ProfileCard';
-// import RangeSlider from '@/components/common/RangeSlider';
+import RangeSlider from '@/components/common/RangeSlider';
 import { Box, useTheme, Container, Grid, Button, Rating, Checkbox, FormControlLabel } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
@@ -41,7 +40,7 @@ export default function Home() {
             <ComboBox />
             <Rating name="read-only" value={4} readOnly />
             <Rating name="read-only" value={3} readOnly />
-            {/* <RangeSlider /> */}
+            <RangeSlider />
             <Box display="flex" justifyContent="center" flexDirection="column">
               <FormControlLabel control={<Checkbox defaultChecked />} label="Legend Level" />
               <FormControlLabel control={<Checkbox defaultChecked />} label="Senior Level " />
