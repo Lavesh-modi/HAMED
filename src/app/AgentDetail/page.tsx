@@ -1,8 +1,8 @@
 'use client';
-import SideBarAgent from '@/components/agentDetail/sideBar';
+import SideBarAgent from '@/components/agent/sideBar';
 import React from 'react';
 import DynamicSidebar from '@/components/common/DynamicSidebar';
-import MainAgent from '@/components/agentDetail/mainContent';
+import MainAgent from '@/components/agent/mainContent';
 
 function AgentDetail() {
   const handleFavoriteClick = () => {
