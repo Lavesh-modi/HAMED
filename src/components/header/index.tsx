@@ -11,7 +11,7 @@ import MoreIcon from '@mui/icons-material/MoreVert';
 import CustomSearchBar from '../common/CustomSearch';
 import Image from 'next/image';
 import DrawerHome from '../common/Drawer';
-import SideBar from '../Home/SideBar';
+import SideBar from '../home/SideBar';
 
 export default function Header() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -95,8 +95,8 @@ export default function Header() {
   );
 
   return (
-    <Box sx={{ flexGrow: 1, background: 'white' }}>
-      <AppBar position="static">
+    <Box sx={{ flexGrow: 1, background: 'white', position: 'sticky', top: 0, left: 0, zIndex: 1000 }}>
+      <AppBar position="static" sx={{ backgroundColor: '#eeeeee88' }}>
         <Toolbar>
           <DrawerHome>
             <SideBar />
@@ -117,7 +117,7 @@ export default function Header() {
               onClick={handleProfileMenuOpen}
               color="inherit"
             >
-              <AccountCircle />
+              <AccountCircle sx={{ color: '#1976d2', height: '40px', width: '40px' }} />
             </IconButton>
           </Box>
           <Box sx={{ display: { xs: 'flex', md: 'none' } }}>

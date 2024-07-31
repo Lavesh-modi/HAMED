@@ -49,15 +49,25 @@ const CustomSearchBar: React.FC = () => {
         gridTemplateColumns: 'minmax(100px, 30%) 70%',
         width: '60%',
         height: '100%',
-        border: '1px solid #454545',
+        border: '1px solid #1976d2',
         borderRadius: '4px',
         overflow: 'hidden'
       }}
     >
       <CategoryAutocomplete
-        sx={{ marginInline: '0px', backgroundColor: 'white' }}
+        sx={{ marginInline: '0px', border: '1px solid #1976d2' }}
         options={categories}
-        getOptionLabel={(option) => option.title}
+        renderOption={(props, option) => (
+          <li
+            {...props}
+            style={{
+              color: '#1976d2', // Change option text color
+              fontWeight: 'bold' // Make option text bold
+            }}
+          >
+            {option.title}
+          </li>
+        )}
         renderInput={(params) => (
           <TextField
             {...params}
@@ -65,12 +75,29 @@ const CustomSearchBar: React.FC = () => {
             variant="outlined"
             placeholder="Category"
             sx={{
+              '& .MuiOutlinedInput-input': {
+                color: '#000',
+                fontWeight: '700' // Change text color
+              },
+              '& .MuiInputBase-input::placeholder': {
+                color: '#000',
+                fontWeight: '700' // Change placeholder color
+              },
               '& .MuiOutlinedInput-root': {
                 paddingRight: 0,
                 '& fieldset': {
                   border: 'none'
                 }
               }
+            }}
+            InputProps={{
+              ...params.InputProps,
+              sx: {
+                color: '#1976d2' // Change text color
+              }
+            }}
+            InputLabelProps={{
+              style: { color: '#1976d2' } // Change label color if needed
             }}
           />
         )}
