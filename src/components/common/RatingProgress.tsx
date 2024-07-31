@@ -1,9 +1,12 @@
 import { Box, LinearProgress, Rating, Typography } from '@mui/material';
 import React from 'react';
 
-function RatingProgress() {
-  const ratingValue = 4;
-  const progressValue = 70;
+interface RatingProgressProps {
+  ratingValue: number;
+  progressValue: number;
+}
+
+const RatingProgress: React.FC<RatingProgressProps> = ({ ratingValue, progressValue }) => {
   return (
     <Box display="flex" alignItems="center" width="100%">
       <Box display="flex" alignItems="center" width="130px">
@@ -15,6 +18,6 @@ function RatingProgress() {
       </Box>
     </Box>
   );
-}
+};
 
 export default RatingProgress;

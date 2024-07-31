@@ -1,7 +1,6 @@
 'use client';
 
 import * as React from 'react';
-
 import { styled } from '@mui/material/styles';
 import ArrowDropDownIcon from '@mui/icons-material/ExpandMore';
 import MuiAccordion, { AccordionProps } from '@mui/material/Accordion';
@@ -36,8 +35,7 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
 }));
 
 interface CustomAccordionProps {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  items: { title: string; content: any }[];
+  items: { title: string; content: React.ReactNode }[];
 }
 
 const CustomizedAccordions: React.FC<CustomAccordionProps> = ({ items }) => {
@@ -55,7 +53,7 @@ const CustomizedAccordions: React.FC<CustomAccordionProps> = ({ items }) => {
             <Typography>{item.title}</Typography>
           </AccordionSummary>
           <AccordionDetails>
-            <Typography>{item.content}</Typography>
+            <Typography component="div">{item.content}</Typography>
           </AccordionDetails>
         </Accordion>
       ))}
