@@ -1,7 +1,11 @@
+'use client';
+
 import CustomizedAccordions from '@/components/common/CustomizedAccordions';
 import RatingProgress from '@/components/common/RatingProgress';
+import SideBar from '@/components/Home/SideBar';
 import { Box, Typography } from '@mui/material';
 import React from 'react';
+import DynamicSidebar from '@/components/common/DynamicSidebar';
 
 function AgentDetail() {
   const accordionItems = [
@@ -53,11 +57,7 @@ function AgentDetail() {
       content: 'Content for item #3 goes here.'
     }
   ];
-  return (
-    <>
-      <CustomizedAccordions items={accordionItems} />
-    </>
-  );
+  return <DynamicSidebar sidebar={<SideBar />} main={<CustomizedAccordions items={accordionItems} />} />;
 }
 
 export default AgentDetail;

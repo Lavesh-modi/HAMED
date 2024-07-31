@@ -2,20 +2,18 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function valuetext(value) {
+function valuetext(value: number) {
   return `${value}°C`;
 }
 
 export default function RangeSlider() {
-  const [value, setValue] = React.useState([20, 37]);
+  const [value, setValue] = React.useState<number[]>([20, 37]);
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
+  const handleChange = (event: Event, newValue: number | number[]) => {
+    setValue(newValue as number[]);
   };
 
   return (
-    // eslint-disable-next-line react/jsx-filename-extension
     <Box sx={{ width: 300 }}>
       <Slider
         getAriaLabel={() => 'Temperature range'}

@@ -55,7 +55,7 @@ const CustomSearchBar: React.FC = () => {
       }}
     >
       <CategoryAutocomplete
-        sx={{ marginInline: '0px' }}
+        sx={{ marginInline: '0px', backgroundColor: 'white' }}
         options={categories}
         getOptionLabel={(option) => option.title}
         renderInput={(params) => (
